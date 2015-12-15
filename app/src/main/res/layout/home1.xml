@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/finalbg">
+
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/header_bg">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="FIND CASINO"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/icon_menu" />
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/settings_icon" />
+    </RelativeLayout>
+
+    <AutoCompleteTextView
+        android:id="@+id/enter_casino"
+
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl1"
+
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/search_bg"
+        android:drawableLeft="@drawable/search_icon"
+        android:hint="Type Casino Name"
+        android:padding="5dp"
+        android:textColor="#acacac"
+        android:textColorHint="@color/abc_search_url_text_normal"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/casino_location"
+
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/enter_casino"
+
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/search_bg"
+        android:drawableLeft="@drawable/search_icon"
+        android:hint="Type Casino Name"
+        android:padding="5dp"
+        android:textColor="#acacac"
+        android:textColorHint="@color/abc_search_url_text_normal"
+        />
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/casino_location"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp">
+
+        <Switch
+            android:id="@+id/distance_Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="No"
+            android:textOn="Yes"
+            android:thumb="@drawable/custom_switch_inner_holo_light"
+            android:layout_centerVertical="true"/>
+
+        <EditText
+            android:id="@+id/distance_edit"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/distance_Switch"
+            android:background="@drawable/search_bg"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/btn_dist"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:background="@drawable/search_button"
+            android:layout_toRightOf="@+id/distance_edit"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"/>
+
+
+        <Switch
+            android:id="@+id/mySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="No"
+            android:textOn="Yes"
+            android:thumb="@drawable/custom_switch_inner_holo_light"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/btn_dist"/>
+
+        <ImageView
+            android:id="@+id/casino_navigation"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:background="@drawable/gps_icon_final"
+            android:layout_toRightOf="@+id/mySwitch"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-4454890535090791/3420544665"
+        android:layout_alignParentBottom="true"
+        >
+    </com.google.android.gms.ads.AdView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout"
+        android:text="Welcome"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame_faragment"
+        android:layout_below="@+id/layout"
+        android:layout_above="@+id/adView"
+        android:visibility="visible">
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/list_replace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_below="@id/layout"
+        android:layout_above="@id/adView">
+    </ListView>
+
+</RelativeLayout>

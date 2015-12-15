@@ -1,0 +1,11 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/customswitchselector" android:state_pressed="true">
+        <size android:width="37dp" android:height="37dp" />
+    </item>
+    <item android:drawable="@drawable/customswitchselector" android:state_checked="true">
+        <size android:width="37dp" android:height="37dp" />
+    </item>
+    <item android:drawable="@drawable/customswitchselector">
+        <size android:width="37dp" android:height="37dp" />
+    </item>
+</selector>
